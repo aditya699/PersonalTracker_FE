@@ -46,7 +46,7 @@ function HomePage() {
         </h1>
 
         <p className="home__tagline">
-          Sort your life with the minimal tracker you ever need.
+          Sort your life with the <span className="home__tagline-accent">minimal</span> tracker you ever need.
         </p>
 
         <div className="home__cta">
