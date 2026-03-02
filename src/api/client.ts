@@ -2,14 +2,14 @@ import axios, { type InternalAxiosRequestConfig } from "axios";
 import { BASE_URL, ENDPOINTS } from "./config";
 import {
   getAccessToken,
-  getRefreshToken,
-  setTokens,
-  clearTokens,
+  setAccessToken,
+  clearAccessToken,
 } from "../utils/token";
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
+  withCredentials: true,
 });
 
 // Attach access token to every request
@@ -53,7 +53,7 @@ apiClient.interceptors.response.use(
 
     // Don't intercept refresh requests themselves
     if (originalRequest.url === ENDPOINTS.AUTH.refresh) {
-      clearTokens();
+      clearAccessToken();
       window.location.href = "/login";
       return Promise.reject(error);
     }
@@ -70,27 +70,22 @@ apiClient.interceptors.response.use(
     originalRequest._retry = true;
     isRefreshing = true;
 
-    const refreshToken = getRefreshToken();
-    if (!refreshToken) {
-      clearTokens();
-      window.location.href = "/login";
-      return Promise.reject(error);
-    }
-
     try {
+      // Cookie is sent automatically by the browser — no body needed
       const { data } = await axios.post(
         `${BASE_URL}${ENDPOINTS.AUTH.refresh}`,
-        { refresh_token: refreshToken },
+        {},
+        { withCredentials: true },
       );
 
-      setTokens(data.access_token, data.refresh_token);
+      setAccessToken(data.access_token);
       processQueue(null, data.access_token);
 
       originalRequest.headers.Authorization = `Bearer ${data.access_token}`;
       return apiClient(originalRequest);
     } catch (refreshError) {
       processQueue(refreshError, null);
-      clearTokens();
+      clearAccessToken();
       window.location.href = "/login";
       return Promise.reject(refreshError);
     } finally {
