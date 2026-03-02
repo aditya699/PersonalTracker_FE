@@ -1,9 +1,7 @@
+import HomePage from './pages/HomePage.tsx'
+
 function App() {
-  return (
-    <div>
-      <h1>PersonalTracker</h1>
-    </div>
-  )
+  return <HomePage />
 }
 
 export default App
