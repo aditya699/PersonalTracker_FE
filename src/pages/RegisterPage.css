@@ -1,0 +1,3 @@
+/* RegisterPage shares all styles from LoginPage.css (.auth-* classes) */
+/* This file exists for any register-specific overrides in the future */
+@import './LoginPage.css';

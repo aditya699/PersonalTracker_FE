@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 import './HomePage.css'
 
 function HomePage() {
   const stageRef = useRef<HTMLDivElement>(null)
   const [ordered, setOrdered] = useState(false)
+  const { isAuthenticated, isLoading } = useAuth()
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
@@ -34,6 +37,29 @@ function HomePage() {
 
   return (
     <main className="home">
+      {/* ── Top Nav ── */}
+      <nav className="home__nav">
+        <span className="home__nav-brand">
+          Modern<span className="home__nav-brand-accent">Life</span>Tracker
+        </span>
+        {!isLoading && (
+          <div className="home__nav-actions">
+            {isAuthenticated ? (
+              <Link className="home__nav-btn home__nav-btn--primary" to="/dashboard">
+                Dashboard
+              </Link>
+            ) : (
+              <>
+                <Link className="home__nav-btn" to="/login">Sign in</Link>
+                <Link className="home__nav-btn home__nav-btn--primary" to="/register">
+                  Register
+                </Link>
+              </>
+            )}
+          </div>
+        )}
+      </nav>
+
       {/* ── Left: Text Content ── */}
       <section className="home__left">
         <div className="home__badge">

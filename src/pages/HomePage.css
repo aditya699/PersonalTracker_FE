@@ -8,6 +8,72 @@
   background-color: #FAFAF9;
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   overflow: hidden;
+  position: relative;
+}
+
+/* ─── Top Nav ─────────────────────────────────────────── */
+
+.home__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: fadeSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.home__nav-brand {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  letter-spacing: -0.02em;
+}
+
+.home__nav-brand-accent {
+  color: #87A98B;
+}
+
+.home__nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home__nav-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #1A1A1A;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.home__nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.home__nav-btn--primary {
+  background-color: #87A98B;
+  color: #FFFFFF;
+}
+
+.home__nav-btn--primary:hover {
+  background-color: #6B8E6F;
+}
+
+@keyframes fadeSlideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─── Left Panel ───────────────────────────────────────── */
@@ -464,6 +530,19 @@
 }
 
 @media (max-width: 480px) {
+  .home__nav {
+    padding: 16px 20px;
+  }
+
+  .home__nav-brand {
+    font-size: 0.95rem;
+  }
+
+  .home__nav-btn {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+  }
+
   .home__left {
     padding: 48px 24px 32px;
   }
