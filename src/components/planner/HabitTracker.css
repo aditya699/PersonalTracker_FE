@@ -1,0 +1,151 @@
+.habit-tracker {
+  background: #FFFFFF;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.habit-tracker__heading {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.habit-tracker__table-wrap {
+  overflow-x: auto;
+  margin-bottom: 14px;
+}
+
+.habit-tracker__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.habit-tracker__th {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 6px 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.habit-tracker__th--name {
+  text-align: left;
+  min-width: 100px;
+}
+
+.habit-tracker__th--action {
+  width: 30px;
+}
+
+.habit-tracker__row {
+  border-top: 1px solid #F3F4F6;
+}
+
+.habit-tracker__row:hover {
+  background-color: #FAFAF9;
+}
+
+.habit-tracker__name {
+  font-size: 0.84rem;
+  color: #1A1A1A;
+  padding: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.habit-tracker__cell {
+  text-align: center;
+  padding: 6px 8px;
+}
+
+.habit-tracker__cell--action {
+  width: 30px;
+}
+
+.habit-tracker__checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #87A98B;
+  cursor: pointer;
+}
+
+.habit-tracker__delete {
+  opacity: 0;
+  border: none;
+  background: none;
+  color: #9CA3AF;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: opacity 0.15s ease, color 0.15s ease;
+}
+
+.habit-tracker__row:hover .habit-tracker__delete {
+  opacity: 1;
+}
+
+.habit-tracker__delete:hover {
+  color: #DC2626;
+}
+
+.habit-tracker__form {
+  display: flex;
+  gap: 8px;
+}
+
+.habit-tracker__input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 8px;
+  background: #FAFAF9;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.84rem;
+  color: #1A1A1A;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.habit-tracker__input:focus {
+  border-color: #87A98B;
+}
+
+.habit-tracker__input::placeholder {
+  color: #9CA3AF;
+}
+
+.habit-tracker__add-btn {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #87A98B;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.habit-tracker__add-btn:hover {
+  border-color: #87A98B;
+  background-color: rgba(135, 169, 139, 0.06);
+}
+
+.habit-tracker__empty {
+  font-size: 0.82rem;
+  color: #9CA3AF;
+  text-align: center;
+  padding: 16px 0;
+}

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import WeeklyPlanner from "../components/planner/WeeklyPlanner";
 import "./DashboardPage.css";
 
 function DashboardPage() {
@@ -15,8 +16,12 @@ function DashboardPage() {
     <main className="dashboard">
       <header className="dashboard__header">
         <div>
-          <h1 className="dashboard__title">Welcome, {user?.name}!</h1>
-          <p className="dashboard__email">{user?.email}</p>
+          <h1 className="dashboard__title">
+            <span className="dashboard__brand">Modern</span>
+            <span className="dashboard__brand-accent">Life</span>
+            <span className="dashboard__brand">Tracker</span>
+          </h1>
+          <p className="dashboard__email">Welcome, {user?.name}</p>
         </div>
         <button className="dashboard__logout" onClick={handleLogout}>
           Log out
@@ -24,11 +29,7 @@ function DashboardPage() {
       </header>
 
       <section className="dashboard__content">
-        <div className="dashboard__placeholder">
-          <p className="dashboard__placeholder-text">
-            Your tasks will appear here soon.
-          </p>
-        </div>
+        <WeeklyPlanner />
       </section>
     </main>
   );

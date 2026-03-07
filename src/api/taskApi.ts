@@ -20,10 +20,12 @@ export async function listTasks(
   status?: TaskStatus,
   skip?: number,
   limit?: number,
+  dateFrom?: string,
+  dateTo?: string,
 ): Promise<TaskListResponse> {
   const response = await apiClient.get<TaskListResponse>(
     ENDPOINTS.TASKS.list,
-    { params: { status, skip, limit } },
+    { params: { status, skip, limit, date_from: dateFrom, date_to: dateTo } },
   );
   return response.data;
 }

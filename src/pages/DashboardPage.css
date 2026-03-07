@@ -2,38 +2,45 @@
   min-height: 100vh;
   background-color: #FAFAF9;
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-  padding: 32px 48px;
+  padding: 28px 40px;
 }
 
 .dashboard__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 960px;
-  margin: 0 auto 48px;
+  max-width: 1280px;
+  margin: 0 auto 28px;
 }
 
 .dashboard__title {
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: #1A1A1A;
   letter-spacing: -0.02em;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
+}
+
+.dashboard__brand {
+  color: #1A1A1A;
+}
+
+.dashboard__brand-accent {
+  color: #87A98B;
 }
 
 .dashboard__email {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #6B7280;
 }
 
 .dashboard__logout {
-  padding: 10px 20px;
+  padding: 8px 18px;
   border: 1.5px solid #E5E7EB;
   border-radius: 10px;
   background: #FFFFFF;
   color: #1A1A1A;
   font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 500;
   cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -45,33 +52,20 @@
 }
 
 .dashboard__content {
-  max-width: 960px;
+  max-width: 1280px;
   margin: 0 auto;
-}
-
-.dashboard__placeholder {
-  text-align: center;
-  padding: 80px 24px;
-  background: #FFFFFF;
-  border-radius: 16px;
-  border: 1.5px dashed #E5E7EB;
-}
-
-.dashboard__placeholder-text {
-  font-size: 1rem;
-  color: #9CA3AF;
 }
 
 /* ─── Responsive ─────────────────────────────── */
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .dashboard {
-    padding: 24px 20px;
+    padding: 20px 16px;
   }
 
   .dashboard__header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
   }
 }

@@ -51,10 +51,17 @@ apiClient.interceptors.response.use(
       return Promise.reject(error);
     }
 
-    // Don't intercept refresh requests themselves
-    if (originalRequest.url === ENDPOINTS.AUTH.refresh) {
-      clearAccessToken();
-      window.location.href = "/login";
+    // Don't intercept auth requests (login, register, refresh)
+    const authPaths = [
+      ENDPOINTS.AUTH.login,
+      ENDPOINTS.AUTH.register,
+      ENDPOINTS.AUTH.refresh,
+    ];
+    if (authPaths.includes(originalRequest.url as string)) {
+      if (originalRequest.url === ENDPOINTS.AUTH.refresh) {
+        clearAccessToken();
+        window.location.href = "/login";
+      }
       return Promise.reject(error);
     }
 
